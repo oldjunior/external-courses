@@ -1,5 +1,5 @@
 'use strict';
-function shallowCopyOf(obj) {
+function makeShallowCopy(obj) {
   return Object.assign({}, obj);
 }
-module.exports = shallowCopyOf;
+module.exports = makeShallowCopy;
