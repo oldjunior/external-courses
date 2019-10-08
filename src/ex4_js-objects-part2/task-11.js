@@ -1,5 +1,5 @@
 'use strict';
-function countEntrance(str) {
+function countOccurrences(str) {
   const uniqChars = [];
   let isUnique = true;
   for (let i = 0; i < str.length; i++) {
@@ -11,13 +11,13 @@ function countEntrance(str) {
     if (isUnique) uniqChars[uniqChars.length] = str[i];
   }
 
-  let entCounter = 0;
+  let occurCount = 0;
   for (let i = 0; i < uniqChars.length; i++) {
     for (let j = 0; j < str.length; j++) {
-      if (uniqChars[i] === str[j]) entCounter++;
+      if (uniqChars[i] === str[j]) occurCount++;
     }
-    console.log(`${uniqChars[i]}: ${entCounter}`);
-    entCounter = 0;
+    console.log(`${uniqChars[i]}: ${occurCount}`);
+    occurCount = 0;
   }
 }
-module.exports = countEntrance;
+module.exports = countOccurrences;
