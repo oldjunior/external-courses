@@ -1,0 +1,33 @@
+.box {
+  height: 150px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+.border1 {
+  border: 2px solid black;
+}
+.border2 {
+  outline: solid;
+}
+.border3 {
+  box-shadow: 0 0 2px black;
+}
+.border4 {
+  padding: 2px;
+  background: black;
+}
+.border4 div {
+  background: white;
+}
+.border5 {
+  position: relative;
+  padding: 2px;
+  background: black;
+}
+.border5::before {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  content: '';
+  background: white;
+}
