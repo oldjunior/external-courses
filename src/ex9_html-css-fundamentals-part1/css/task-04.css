@@ -1,0 +1,49 @@
+.layer,
+#stack,
+#stack::before,
+#stack::after,
+#box
+{
+  width: 400px;
+  height: 200px;
+}
+#third {
+  margin: 30px 30px;
+  background: #BFE3D1;
+}
+#second {
+  position: relative;
+  bottom: 5px;
+  right: 5px;
+  background: #90CDAF;
+}
+#first {
+  position: relative;
+  bottom: 5px;
+  right: 5px;
+  background: #60B88D;
+}
+#stack {
+  position: relative;
+  margin: 30px 30px;
+  background: #BFE3D1;
+}
+#stack::before {
+  position: absolute;
+  content: '';
+  bottom: 5px;
+  right: 5px;
+  background: #90CDAF;
+}
+#stack::after {
+  position: absolute;
+  content: '';
+  bottom: 10px;
+  right: 10px;
+  background: #60B88D;
+}
+#box {
+  margin: 20px 20px;
+  background: #60B88D;
+  box-shadow: 5px 5px #90CDAF, 10px 10px #BFE3D1;
+}

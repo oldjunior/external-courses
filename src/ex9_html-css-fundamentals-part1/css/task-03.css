@@ -1,0 +1,38 @@
+button {
+  margin: 20px 20px;
+  position: relative;
+  width: 215px;
+  height: 62px;
+  box-shadow: 0 0 3px #000000;
+  border: 1.4pt solid #FFFFFF;
+  border-radius: 15px;
+  background-color: #CBCBCB;
+  font: 600 20px Arial;
+  color: #555555;
+  text-shadow: 0 1pt 0 #ACACAB;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+button::before {
+  position: absolute;
+  content: '';
+  height: 82%;
+  width: 95%;
+  top: 9%;
+  left: 2.5%;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #636363;
+  background: linear-gradient(#E0E0E0, #AEAEAE);
+}
+button span {
+  position: relative;
+  z-index: 2;
+}
+button span::before, button span::after {
+  margin: 0 10px;
+  content: '\2605';
+  color: #888888;
+  font: 600 25px Arial;
+}
