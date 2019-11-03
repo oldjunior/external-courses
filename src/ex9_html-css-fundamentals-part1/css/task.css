@@ -1,0 +1,71 @@
+h2 {
+  margin-bottom: 0;
+}
+.asterisk {
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #FF6666;
+}
+#feedback-form {
+  width: 500px;
+  margin: 0 auto;
+  font: 600 12px Arial;
+  color: #5F5F5F;
+}
+#feedback-form fieldset {
+  width: 450px;
+  margin-top: 5px;
+  padding: 0;
+  padding-top: 10px;
+  border: none;
+  border-top: 2px solid black;
+}
+#feedback-form p {
+  display: flex;
+  margin-top: 15px;
+}
+#feedback-form label {
+  width: 80px;
+}
+#feedback-form input, textarea, button {
+  border: 1.2pt solid #969696;
+  border-radius: 5px;
+}
+#feedback-form textarea {
+  height: 50px;
+  width: 200px;
+}
+#feedback-form input {
+  padding: 3px 5px;
+}
+#feedback-form input::placeholder {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #DBDBDB;
+}
+#feedback-form button {
+  margin: 10px 50px;
+  padding: 4px 25px;
+  font: 600 1em Arial;
+  color: #5F5F5F;
+}
+#feedback-form .form-hint {
+  position: relative;
+  width: 75px;
+  margin: 4px 50px;
+  padding: 3px 20px;
+  background-color: #D45252;
+  color: #FFFFFF;
+  font-size: 0.9em;
+}
+#feedback-form .form-hint::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -5px;
+  height: 0;
+  width: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #D45252;
+}
