@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Goudy Bookletter 1911');
+h1 {
+  color: #fc0303;
+}
+.ordered-list {
+  background-color: turquoise;
+  font-family: "Verdana";
+  font-size: medium;
+}
+.unordered-list {
+  background-color: #9beb34;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16pt;
+}
+.desc-list {
+  width: 50%;
+  height: 200px;
+  background-color: rgb(252, 165, 3);
+}
+li ul {
+  font-style: italic;
+}
+#ramm {
+  font-family: 'Goudy Bookletter 1911';
+  font-size: 20px;
+}
+th {
+  padding: 10px;
+  background-color: #736b6b;
+}
+td {
+  padding: 10px;
+  background-color: #9e9393;
+}
+.source-code {
+  width: 300px;
+  padding-top: 20px;
+  background-image: url('../img/bground_window.png');
+}

@@ -1,0 +1,23 @@
+#eye-chart {
+  width: 100px;
+  box-shadow: 10px 10px 5px grey;
+}
+#eye-chart h1, h2, h3, h4, h5, h6 {
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+.red-card {
+  height: 250px;
+  width: 150px;
+  background-color: #FF0000;
+  margin-bottom: 20px;
+}
+#some-table {
+  border-collapse: collapse;
+}
+#some-table th, td {
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  text-align: center;
+}
