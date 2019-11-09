@@ -1,0 +1,120 @@
+body {
+  display: flex;
+  justify-content: space-around;
+}
+#loader {
+  position: relative;
+  width: 400px;
+  height: 430px;
+  background-image: url(../img/plate.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pizza {
+  animation: pizza-slice 5s steps(1, jump-both) infinite;
+}
+.pizza-fadeout {
+  position: absolute;
+  left: 0;
+  animation:
+    pizza-slice-fadeout 5s steps(1, jump-start) infinite,
+    fadeout .625s infinite;
+}
+@keyframes pizza-slice {
+  0% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 50% 0);
+  }
+  12.5% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%);
+  }
+  37.5% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%);
+  }
+  62.5% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%);
+  }
+  87.5% {
+    clip-path: polygon(50% 50%, 50% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 0);
+  }
+}
+@keyframes pizza-slice-fadeout {
+  0%, 12.5% {  clip-path: polygon(50% 50%, 100% 0, 50% 0);  }
+  25% {  clip-path: polygon(50% 50%, 100% 50%, 100% 0);  }
+  37.5% {  clip-path: polygon(50% 50%, 100% 100%, 100% 50%);  }
+  50% {  clip-path: polygon(50% 50%, 50% 100%, 100% 100%); }
+  62.5% {  clip-path: polygon(50% 50%, 0% 100%, 50% 100%);  }
+  75% {  clip-path: polygon(50% 50%, 0 50%, 0 100%);  }
+  87.5% {  clip-path: polygon(50% 50%, 0 0, 0 50%);  }
+  100% {  clip-path: polygon(50% 50%, 50% 0, 0 0);  }
+}
+@keyframes fadeout {
+  from {  opacity: 1; }
+  to {  opacity: 0; }
+}
+#bouncing-ball {
+  display: flex;
+  width: 500px;
+  height: 400px;
+}
+.wall {
+  flex: 1;
+  background-color: yellowgreen;
+}
+.field {
+  width: 400px;
+  display: flex;
+  align-items: center;
+}
+.ball {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#7c8acc, #314cd4);
+  border-radius: 50%;
+  animation: move-ball 3s infinite alternate;
+}
+@keyframes move-ball {
+  0% {  transform: translateX(0);  }
+  100% {  transform: translateX(350px);  }
+}
+#transform {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(#ffffff, #fc8c03);
+  animation: transformation 8s infinite;
+}
+@keyframes transformation {
+  0% {
+    border-radius: 50%;
+  }
+  18% {
+    border-radius: 0;
+  }
+  34% {
+    background: radial-gradient(#ffffff, #9dfc03);
+  }
+  50% {
+    transform: scale(0.5);
+    transform: skewX(30deg);
+  }
+  66% {
+    transform: rotate(360deg);
+  }
+  82% {
+    background: linear-gradient(#ffffff, #9dfc03);
+  }
+  100% {
+    border-radius: 50%;
+  }
+}

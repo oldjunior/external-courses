@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+body {
+  font-family: Arimo;
+}
+form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+.field {
+  position: relative;
+  border-bottom: 1px solid #eaeaea;
+}
+input {
+  position: relative;
+  z-index: 2;
+  margin-top: 16px;
+  border: none;
+  padding: 3px 2px;
+}
+input[type='text'] {
+  font-size: 32px;
+  color: #353535;
+}
+label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .2s linear;
+  color: #cbc5c5;
+  font-size: 16px;
+}
+input:placeholder-shown + label {
+  top: 20px;
+  z-index: 1;
+}
+input:not(:placeholder-shown) + label {
+  top: 3px;
+  z-index: 3;
+}
+input:focus {
+  outline: none;
+  color: #050505;
+}
+input:focus + label {
+  color: #067bff;
+}
