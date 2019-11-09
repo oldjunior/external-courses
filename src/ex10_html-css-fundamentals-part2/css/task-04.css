@@ -147,20 +147,20 @@ body {
   margin: 0 50px 0 10px;
 }
 .banner {
-  height: 770px;
+  width: 100%;
   min-width: 1180px;
   display: flex;
   flex-direction: column;
   background-image: url('../img/banner_bgnd.png');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;
+  background-size: 100% 100%;
 }
 .banner__text {
   position: relative;
   height: 200px;
   width: 810px;
-  padding: 120px 0 0 430px;
+  margin: 120px auto 0;
 }
 .banner__text h1{
   position: relative;
@@ -187,13 +187,14 @@ body {
   color: #bbedff;
   font-size: 130px;
   font-weight: bold;
-  top: 105px;
-  left: 435px;
+  top: 0;
+  left: 0;
 }
 .banner__slider {
   display: flex;
   list-style-type: none;
   margin-left: 39%;
+  margin-bottom: 6%;
 }
 .banner__slider-img {
   position: relative;
