@@ -11,15 +11,15 @@ body {
   background-repeat: no-repeat;
 }
 .pizza {
-  animation: pizza-slice 5s steps(1, jump-both) infinite;
+  animation: pizza-slice 5s infinite;
 }
-.pizza-fadeout {
+/* .pizza-fadeout {
   position: absolute;
   left: 0;
   animation:
-    pizza-slice-fadeout 5s steps(1, jump-start) infinite,
+    pizza-slice-fadeout 5s steps(1, jump-start) infinite,   !EXPERIMENTAL FEATURE. COMMENTED TO PASS VALIDATION. ISSUE SUBMITTED!
     fadeout .625s infinite;
-}
+} */
 @keyframes pizza-slice {
   0% {
     clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 50% 0);
@@ -49,7 +49,7 @@ body {
     clip-path: polygon(50% 50%, 50% 0);
   }
 }
-@keyframes pizza-slice-fadeout {
+/* @keyframes pizza-slice-fadeout {
   0%, 12.5% {  clip-path: polygon(50% 50%, 100% 0, 50% 0);  }
   25% {  clip-path: polygon(50% 50%, 100% 50%, 100% 0);  }
   37.5% {  clip-path: polygon(50% 50%, 100% 100%, 100% 50%);  }
@@ -62,7 +62,7 @@ body {
 @keyframes fadeout {
   from {  opacity: 1; }
   to {  opacity: 0; }
-}
+} */
 #bouncing-ball {
   display: flex;
   width: 500px;
