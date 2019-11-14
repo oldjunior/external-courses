@@ -1,0 +1,7 @@
+#penny {
+  clip-path: circle(45%);
+}
+#binary {
+  -webkit-mask-image: url('../img/guy_fawkes.png');
+  -webkit-mask-size: 405px;
+}
