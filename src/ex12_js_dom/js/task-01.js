@@ -1,42 +1,40 @@
 'use strict';
-let photo = [];
-let num = 0;
-let img;
-let prevShown;
+const photos = [];
+let img, prevShown, count = 0;
 
-function getPhotoJSON(url) {
-   return fetch(url).then(response => response.json());
+function getPhotosJSON(url) {
+  return fetch(url).then(response => response.json());
 }
-getPhotoJSON('https://www.oldjun.fun/slider/get_photos.json').then(data => {
-   for (var key in data) {
-     if (data.hasOwnProperty(key)) {
-        photo[key] = data[key];
-      }
+getPhotosJSON('https://www.oldjun.fun/slider/get_photos.json').then(data => {
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      photos[key] = data[key];
     }
-  changePhoto(num);
+  }
+  changePhoto(count);
 });
 
-document.querySelector('.slider__right-btn').addEventListener('click', nextPhoto);
-document.querySelector('.slider__left-btn').addEventListener('click', prevPhoto);
+document.querySelector('.slider__right-btn').addEventListener('click', goForward);
+document.querySelector('.slider__left-btn').addEventListener('click', goBack);
 
-function changePhoto(num) {
+function changePhoto(count) {
   if (prevShown) {
     document.querySelector('.slider__content').removeChild(prevShown);
   }
   img = document.createElement('img');
   img.setAttribute('class', 'slider__photo fadein-animation');
-  img.setAttribute('src', photo[num].imgURL);
-  img.setAttribute('alt', photo[num].imgDesc);
-  img.setAttribute('title', photo[num].imgDesc);
+  img.setAttribute('src', photos[count].imgURL);
+  img.setAttribute('alt', photos[count].imgDesc);
+  img.setAttribute('title', photos[count].imgDesc);
   prevShown = document.querySelector('.slider__content').appendChild(img);
 }
-function nextPhoto() {
-  num++;
-  if (num === photo.length) num = 0;
-  changePhoto(num);
+function goForward() {
+  count++;
+  if (count === photos.length) count = 0;
+  changePhoto(count);
 }
-function prevPhoto() {
-  num--;
-  if (num < 0) num = photo.length - 1;
-  changePhoto(num);
+function goBack() {
+  count--;
+  if (count < 0) count = photos.length - 1;
+  changePhoto(count);
 }

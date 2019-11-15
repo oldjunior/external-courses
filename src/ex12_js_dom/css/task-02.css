@@ -135,7 +135,7 @@ body {
   background: #0067A3;
   color: #FFFFFF;
 }
-.counters {
+.counter-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
