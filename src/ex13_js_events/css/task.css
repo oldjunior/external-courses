@@ -132,12 +132,28 @@ body {
   overflow-y: hidden;
   overflow-x: auto;
   background: #0079BF;
+  padding-bottom: 30px;
 }
 .list {
   flex-basis: 282px;
   margin: 20px 24px 20px 0;
   background: #EBECF0;
   border-radius: 10px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list:first-child {
+  margin-left: 20px;
+}
+.list:last-child {
+  margin-right: 20px;
+}
+.board::after {
+  content: '.';
+  opacity: 0;
+  font-size: .5px;
 }
 .list__heading {
   display: flex;
@@ -167,6 +183,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow-y: auto;
 }
 .list__card-list-item {
   width: 258px;
@@ -176,13 +193,17 @@ body {
   border-radius: 5px;
 }
 .list__add-card-btn {
-  margin: 0 0 8px 14px;
+  margin: 10px 0 8px 14px;
+  width: 105px;
   font-family: Roboto;
   font-size: 18px;
   color: #5E6C84;
   background: none;
   border: none;
   cursor: pointer;
+}
+.list__add-card-btn_disabled {
+  cursor: initial;
 }
 .list__add-card-img {
   width: 14px;

@@ -41,21 +41,34 @@ function createLists() {
     <svg class="list__add-card-img"><use xlink:href="assets/icons.svg#add-card-btn" /></svg>
     <span class="list__add-card-txt">Add card</span>
   </button>`);
+  if (index > 0) disableAddBtn(index);
   });
-  board.addEventListener('click', addCardBtnHandler);
-}
-function createCards(cardStatus) {
-  const cardList = document.createElement('ul');
-  cardList.className = 'list__card-list';
-  actualCards.issues.forEach(issue => {
-    const cardListItem = document.createElement('li');
-    cardListItem.className = 'list__card-list-item';
-    if (+issue.status === cardStatus) {
-      cardListItem.insertAdjacentText('afterbegin', issue.desc);
-      cardList.append(cardListItem);
+  function createCards(cardStatus) {
+    const cardList = document.createElement('ul');
+    cardList.className = 'list__card-list';
+    actualCards.issues.forEach(issue => {
+      const cardListItem = document.createElement('li');
+      cardListItem.className = 'list__card-list-item';
+      if (+issue.status === cardStatus) {
+        cardListItem.insertAdjacentText('afterbegin', issue.desc);
+        cardList.append(cardListItem);
+      }
+    });
+    return cardList;
+  }
+  function disableAddBtn(cardStatus) {
+    let isEmptyList = true;
+    actualCards.issues.forEach(issue => {
+      if (+issue.status === cardStatus - 1) {
+        isEmptyList = false;
+      }
+    });
+    if(isEmptyList) {
+      document.getElementById(cardStatus).disabled = true;
+      document.getElementById(cardStatus).classList.add('list__add-card-btn_disabled');
     }
-  });
-  return cardList;
+  }
+  board.addEventListener('click', addCardBtnHandler);
 }
 function addCardBtnHandler() {
   if (event.target.className !== "list__add-card-btn" && event.target.parentNode) {
@@ -69,8 +82,7 @@ function addCardBtnHandler() {
     const
       cardListItem = document.createElement('li'),
       addCardTxtField = document.createElement('input');
-      cardListItem.classList.add('list__card-list-item');
-      cardListItem.classList.add('input-item');
+      cardListItem.className = 'list__card-list-item';
     addCardTxtField.type = 'text';
     addCardTxtField.className = 'list__add-card-input';
     cardList.append(cardListItem);
@@ -82,8 +94,7 @@ function addCardBtnHandler() {
       addCardSelect = document.createElement('select'),
       cardListItem = document.createElement('li');
     let addCardSelectOption = document.createElement('option');
-    cardListItem.classList.add('list__card-list-item');
-    cardListItem.classList.add('input-item');
+    cardListItem.className = 'list__card-list-item';
     addCardSelect.className = 'list__add-card-select';
     cardList.append(cardListItem);
     cardListItem.append(addCardSelect);
@@ -97,12 +108,13 @@ function addCardBtnHandler() {
         addCardSelect.append(addCardSelectOption);
       }
     });
+    addCardSelect.focus();
     document.addEventListener('click', clickAway, true);
   }
   function clickAway() {
     if (!issueStatus) {
       if (!event.target.parentNode) return;
-      if (event.target.className !== 'list__add-card-input' && event.target.id !== "0" & event.target.parentNode.id !== "0") {
+      if (event.target.className !== 'list__add-card-input' && event.target.id !== "0" && event.target.parentNode.id !== "0") {
         addCard();
         document.removeEventListener('click', clickAway, true);
       }
