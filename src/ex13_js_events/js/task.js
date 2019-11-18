@@ -21,12 +21,12 @@ const
     ]
   },
   storedCards = JSON.parse(localStorage.getItem('kanbanCards')),
-  actualCards = storedCards || mockCards,
-  board = document.querySelector('.board');
+  actualCards = storedCards || mockCards;
 
-function createLists(cards) {
+function createLists() {
+  const board = document.querySelector('.board');
   board.innerHTML = '';
-  cards.statuses.forEach((status, index) => {
+  actualCards.statuses.forEach((status, index) => {
     const list = document.createElement('section');
     list.className = 'list'
     board.append(list);
@@ -35,18 +35,19 @@ function createLists(cards) {
     <h3 class="list__heading-txt">${status.text}</h3>
     <button class="list__heading-btn"><svg class="list__heading-img"><use xlink:href="assets/icons.svg#list-heading-btn" /></svg></button>
     </div>`);
-    list.append(createCards(cards, index));
+    list.append(createCards(index));
     list.insertAdjacentHTML('beforeend',
     `<button class="list__add-card-btn" id="${index}">
     <svg class="list__add-card-img"><use xlink:href="assets/icons.svg#add-card-btn" /></svg>
     <span class="list__add-card-txt">Add card</span>
   </button>`);
   });
+  board.addEventListener('click', addCardBtnHandler);
 }
-function createCards(cards, cardStatus) {
+function createCards(cardStatus) {
   const cardList = document.createElement('ul');
   cardList.className = 'list__card-list';
-  cards.issues.forEach(issue => {
+  actualCards.issues.forEach(issue => {
     const cardListItem = document.createElement('li');
     cardListItem.className = 'list__card-list-item';
     if (+issue.status === cardStatus) {
@@ -57,9 +58,10 @@ function createCards(cards, cardStatus) {
   return cardList;
 }
 function addCardBtnHandler() {
-  if (event.target.className !== "list__add-card-btn" && event.target.parentNode.className) {
+  if (event.target.className !== "list__add-card-btn" && event.target.parentNode) {
     if (event.target.parentNode.className !== "list__add-card-btn") return;
   }
+  if (!event.target.parentNode) return;
   const
     issueStatus = +event.target.id || +event.target.parentNode.id,
     cardList = document.querySelectorAll('.list')[issueStatus].querySelector('.list__card-list');
@@ -79,31 +81,37 @@ function addCardBtnHandler() {
     const
       addCardSelect = document.createElement('select'),
       cardListItem = document.createElement('li');
+    let addCardSelectOption = document.createElement('option');
     cardListItem.classList.add('list__card-list-item');
     cardListItem.classList.add('input-item');
     addCardSelect.className = 'list__add-card-select';
     cardList.append(cardListItem);
     cardListItem.append(addCardSelect);
-    actualCards.issues.forEach(card => {
+    addCardSelectOption.value = '';
+    addCardSelect.append(addCardSelectOption);
+    actualCards.issues.forEach((card, index) => {
       if (+card.status === issueStatus - 1) {
-        const addCardSelectOption = document.createElement('option');
-        addCardSelectOption.value = card.status;
+        addCardSelectOption = document.createElement('option');
+        addCardSelectOption.value = index;
         addCardSelectOption.textContent = card.desc;
         addCardSelect.append(addCardSelectOption);
       }
     });
-    document.addEventListener('click', clickAway(issueStatus), true);
+    document.addEventListener('click', clickAway, true);
   }
-}
-function clickAway(status) {
-  if (!status) {
-    if (event.target.className !== 'list__add-card-input' && event.target.id !== "0" & event.target.parentNode.id !== "0") {
-      addCard();
-      document.removeEventListener('click', clickAway, true);
+  function clickAway() {
+    if (!issueStatus) {
+      if (!event.target.parentNode) return;
+      if (event.target.className !== 'list__add-card-input' && event.target.id !== "0" & event.target.parentNode.id !== "0") {
+        addCard();
+        document.removeEventListener('click', clickAway, true);
+      }
+    } else {
+      if (event.target.className !== 'list__add-card-select') {
+        moveCard(issueStatus);
+        document.removeEventListener('click', clickAway, true);
+      }
     }
-  } else {
-    moveCard(status);
-    document.removeEventListener('click', clickAway, true);
   }
 }
 function addCard() {
@@ -114,11 +122,13 @@ function addCard() {
   sendToStorage();
 }
 function moveCard(status) {
+  const issueIndex = document.querySelectorAll('.list')[status].querySelector('.list__add-card-select').value;
+  if (issueIndex) actualCards.issues[issueIndex].status = status + '';
   document.querySelectorAll('.list')[status].querySelector('.list__add-card-select').parentNode.remove();
+  sendToStorage();
 }
 function sendToStorage() {
   localStorage.setItem('kanbanCards', JSON.stringify(actualCards));
-  createLists(actualCards);
+  createLists();
 }
-createLists(actualCards);
-board.addEventListener('click', addCardBtnHandler);
+createLists();
