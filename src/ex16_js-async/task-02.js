@@ -29,7 +29,6 @@ function displayHints() {
     hintBtn = document.createElement('button');
     hintBtn.className = 'search-field__hint-btn';
     hint.append(hintBtn);
-    hintBtn = document.querySelector('.search-field__hint-btn:last-child');
     hintBtn.insertAdjacentText('afterbegin', hintRes);
   });
 }
