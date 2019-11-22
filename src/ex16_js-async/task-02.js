@@ -7,6 +7,8 @@ const hints = [
   'Daisy',
   'Gabriella'
 ]
+let isTimeout = false;
+
 function displayHints() {
   const
     searchFieldValue = document.querySelector('.search-field__input').value,
@@ -33,7 +35,6 @@ function displayHints() {
   });
 }
 function debounce() {
-  let isTimeout = false;
   if (isTimeout) return;
   displayHints();
   isTimeout = true;
