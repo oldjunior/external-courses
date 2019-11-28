@@ -1,0 +1,16 @@
+form {
+  width: 1000px;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+label, textarea, span, div {
+  margin-top: 15px;
+}
+.with-separator {
+  padding-bottom: 15px;
+  border-bottom: 2px solid threedface;
+}

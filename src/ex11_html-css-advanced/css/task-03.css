@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+  margin: 0;
+  font-family: Roboto;
+  font-size: 18px;
+}
+.page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  min-width: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  display: flex;
+  align-items: flex-start;
+  background: #0067A3;
+}
+.app-logo {
+  flex: none;
+}
+.app-logo__img {
+  width: 45px;
+  height: 45px;
+  margin: 5px 8px 5px 14px;
+  vertical-align: top;
+}
+.app-logo__txt {
+  display:inline-block;
+  margin: 11px 0;
+  font-family: Roboto;
+  font-size: 28px;
+  color: #FFFFFF;
+}
+.header__filler {
+  flex: auto;
+}
+.create-list-btn {
+  flex: none;
+  width: 181px;
+  height: 33px;
+  margin: 11px 50px;
+  padding: 0;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #000000;
+  text-align: start;
+  cursor: pointer;
+}
+.create-list-btn__img {
+  width: 22px;
+  height: 22px;
+  margin: 5px 13px 6px 9px;
+  vertical-align: top;
+}
+.create-list-btn__txt {
+  display: inline-block;
+  margin-top: 7px;
+}
+.user-menu {
+  flex: none;
+  margin-top: 8px;
+  margin-right: 6px;
+}
+.user-menu__avatar {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.user-menu__btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.user-menu__btn-img {
+  width: 12px;
+  height: 8px;
+}
+.board {
+  flex: auto;
+  background: #0079BF;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: #0067A3;
+  color: #FFFFFF;
+}
+.counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 17px 0 17px 67px;
+}
+.act-tasks {
+  margin-right: 36px;
+}
+.dev-info {
+  margin: 17px 24px 17px;
+}
