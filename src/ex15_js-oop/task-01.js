@@ -37,11 +37,9 @@ Gift.prototype.sortCandies = function(prop, selectedType) {
         lowerB = b.brand.toLowerCase();
       if (lowerA === lowerB) return 0;
       return lowerA > lowerB ? 1 : -1;
-    })
-  } else {
-      return this.candies.filter(candy => candy.type === selectedType);
-    }
+    });
   }
+  return this.candies.filter(candy => candy.type === selectedType);
 }
 Gift.prototype.findCandy = function(brand) {
   return this.candies.find(candy => candy.brand.toLowerCase() === brand.toLowerCase());
