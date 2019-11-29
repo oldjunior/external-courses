@@ -1,39 +1,39 @@
 'use strict';
 class Device {
-  constructor(name, powerCons) {
+  constructor(name, powerConsumption) {
     this.name = name;
-    this.powerCons = powerCons;
+    this.powerConsumption = powerConsumption;
     this.isPlugged = false;
   }
 }
 class HomeAppliance extends Device {
-  constructor(name, powerCons) {
-    super(name, powerCons);
+  constructor(name, powerConsumption) {
+    super(name, powerConsumption);
   }
 }
 class ElectronicDevice extends Device {
-  constructor(name, powerCons) {
-    super(name, powerCons);
+  constructor(name, powerConsumption) {
+    super(name, powerConsumption);
   }
 }
 class Room {
   constructor() {
     this.devices = Array.prototype.slice.call(arguments);
   }
-  plugDevice(io) {
+  plugDevice(isTurnOn) {
     const plugDevices = Array.prototype.slice.call(arguments, 1);
     for (let i = 0; i < plugDevices.length; i++) {
       for (let j = 0; j < this.devices.length; j++) {
-        if (this.devices[j].name === plugDevices[i].name) this.devices[j].isPlugged = !!io;
+        if (this.devices[j].name === plugDevices[i].name) this.devices[j].isPlugged = isTurnOn;
       }
     }
   }
-  getTotalPowerCons() {
-    let totalPowerCons = 0;
+  getTotalPowerConsumption() {
+    let totalPowerConsumption = 0;
     this.devices.forEach(device => {
-      if (device.isPlugged) totalPowerCons += device.powerCons;
+      if (device.isPlugged) totalPowerConsumption += device.powerConsumption;
     });
-    return totalPowerCons;
+    return totalPowerConsumption;
   }
   findDevice(byName) {
     return this.devices.find(device => device.name.toLowerCase() === byName.toLowerCase());
@@ -49,7 +49,7 @@ const
   laptop = new ElectronicDevice('Laptop', 150),
   kitchen = new Room(fridge, kettle, microwave),
   livingRoom = new Room(laptop, kitchen, iron);
-kitchen.plugDevice(1, fridge, kettle);
-console.log(kitchen.getTotalPowerCons());
+kitchen.plugDevice(true, fridge, kettle);
+console.log(kitchen.getTotalPowerConsumption());
 console.log(kitchen.findDevice('kettle'));
-livingRoom.plugDevice(0, iron);
+livingRoom.plugDevice(false, iron);

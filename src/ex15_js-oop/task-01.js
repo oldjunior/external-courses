@@ -29,27 +29,22 @@ Gift.prototype.getTotalWeight = function() {
   this.candies.forEach(function(candy) { totalWeight += candy.weight });
   return totalWeight.toFixed(3);
 }
-Gift.prototype.sortCandies = function(byProp, selectedType) {
-  switch(byProp) {
-    case 'brand':
-    default:
-      return this.candies.sort((candy1, candy2) => {
-        if (candy1.brand.toLowerCase() < candy2.brand.toLowerCase()) {
-          return -1;
-        }
-        if (candy1.brand.toLowerCase() > candy2.brand.toLowerCase()) {
-          return 1;
-        }
-        return 0;
-      })
-    break;
-    case 'type':
+Gift.prototype.sortCandies = function(prop, selectedType) {
+  if(prop === 'brand') {
+    return this.candies.sort((a, b) => {
+      const
+        lowerA = a.brand.toLowerCase(),
+        lowerB = b.brand.toLowerCase();
+      if (lowerA === lowerB) return 0;
+      return lowerA > lowerB ? 1 : -1;
+    })
+  } else {
       return this.candies.filter(candy => candy.type === selectedType);
-    break;
+    }
   }
 }
-Gift.prototype.findCandy = function(byBrand) {
-  return this.candies.find(candy => candy.brand.toLowerCase() === byBrand.toLowerCase());
+Gift.prototype.findCandy = function(brand) {
+  return this.candies.find(candy => candy.brand.toLowerCase() === brand.toLowerCase());
 }
 
 const
