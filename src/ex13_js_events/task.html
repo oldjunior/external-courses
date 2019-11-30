@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Kanban Board</title>
+    <link rel="stylesheet" href="css/task.css">
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="app-logo">
+          <svg class="app-logo__img"><use xlink:href="assets/logo.svg#logo" /></svg>
+          <span class="app-logo__txt">Awesome Kanban Board</span>
+        </div>
+        <div class="header__filler"></div>
+        <button class="create-list-btn">
+          <svg class="create-list-btn__img"><use xlink:href="assets/icons.svg#new-list-btn" /></svg>
+          <span class="create-list-btn__txt">Create new list</span>
+        </button>
+        <div class="user-menu">
+          <button class="user-menu__btn">
+            <img class="user-menu__avatar" src="assets/avatar-mock.png" alt="profile picture">
+            <svg class="user-menu__arrow"><use xlink:href="assets/icons.svg#user-menu-arrow" /></svg>
+          </button>
+        </div>
+      </header>
+      <main class="board">
+      </main>
+      <footer class="footer">
+        <div class="counter-group">
+          <span class="act-tasks">
+            <span class="act-tasks__txt">Active tasks: </span>
+            <span class="act-tasks__count"></span>
+          </span>
+          <span class="fin-tasks">
+            <span class="fin-tasks__txt">Finished tasks: </span>
+            <span class="fin-tasks__count"></span>
+          </span>
+        </div>
+        <div class="dev-info">Kanban board by Anton Utkin, 2019</div>
+      </footer>
+    </div>
+    <script src="js/task.js"></script>
+    <script src="js/user_menu.js"></script>
+  </body>
+</html>

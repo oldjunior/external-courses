@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+  margin: 0;
+  font-family: Roboto;
+  font-size: 18px;
+}
+.page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  min-width: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  display: flex;
+  align-items: flex-start;
+  background: #0067A3;
+}
+.app-logo {
+  flex: none;
+}
+.app-logo__img {
+  width: 45px;
+  height: 45px;
+  margin: 5px 8px 5px 14px;
+  vertical-align: top;
+}
+.app-logo__txt {
+  display:inline-block;
+  margin: 11px 0;
+  font-family: Roboto;
+  font-size: 28px;
+  color: #FFFFFF;
+}
+.header__filler {
+  flex: auto;
+}
+.create-list-btn {
+  flex: none;
+  width: 181px;
+  height: 33px;
+  margin: 11px 50px;
+  padding: 0;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #000000;
+  text-align: start;
+  cursor: pointer;
+}
+.create-list-btn__img {
+  width: 22px;
+  height: 22px;
+  margin: 5px 13px 6px 9px;
+  vertical-align: top;
+}
+.create-list-btn__txt {
+  display: inline-block;
+  margin-top: 7px;
+}
+.user-menu {
+  flex: none;
+  position: relative;
+}
+.user-menu__click-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  cursor: default;
+  background: transparent;
+}
+.user-menu__btn {
+  margin-top: 8px;
+  margin-right: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.user-menu__avatar {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.user-menu__arrow {
+  display: inline-block;
+  width: 12px;
+  height: 8px;
+}
+.user-menu__dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  left: auto;
+  z-index: 20;
+  width: 160px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-top: 2px;
+  background-color: #EBECF0;
+  border: 1px solid rgba(27,31,35,.15);
+  border-radius: 4px;
+}
+.user-menu__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  right: 32px;
+  border: 8px solid transparent;
+  border-bottom-color: #EBECF0;
+}
+.user-menu__dropdown-item {
+  display: block;
+  padding: 7px 8px 6px 16px;
+  color: #5E6C84;
+  text-decoration: none;
+}
+.user-menu__dropdown-item:hover {
+  background-color: #0067A3;
+  color: #FFF;
+}
+.board {
+  display: flex;
+  flex: auto;
+  align-items: flex-start;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background: #0079BF;
+  padding-bottom: 30px;
+}
+.list {
+  flex-basis: 282px;
+  margin: 20px 24px 20px 0;
+  background: #EBECF0;
+  border-radius: 10px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.list:first-child {
+  margin-left: 20px;
+}
+.list:last-child {
+  margin-right: 20px;
+}
+.board::after {
+  content: '.';
+  opacity: 0;
+  font-size: .5px;
+}
+.list__heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+  font-size: 18px;
+  color: #000000;
+}
+.list__heading-txt {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.list__heading-btn {
+  width: 20px;
+  height: 8px;
+  align-self: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.list__heading-img {
+  width: 20px;
+  height: 8px;
+}
+.list__card-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.list__card-list::-webkit-scrollbar {
+  width: 12px;
+}
+.list__card-list::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #FFFFFF;
+}
+.list__card-list::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #CBCBCB;
+}
+.list__card-list-item {
+  width: 258px;
+  margin: 15px 12px;
+  padding: 7px 8px;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+.list__add-card-btn {
+  margin: 10px auto 8px auto;
+  width: 105px;
+  font-family: Roboto;
+  font-size: 18px;
+  color: #5E6C84;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.list__add-card-btn:hover {
+  background: #BDDCEE;
+  box-shadow: 0 0 10px gray;
+  border: .5px solid #BDDCEE;
+  border-radius: 5px;
+}
+.list__add-card-btn_disabled {
+  cursor: initial;
+}
+.list__add-card-btn_disabled:hover {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: initial;
+}
+.list__add-card-btn_disabled .list__add-card-txt {
+  color: #BDD8B1;
+}
+.list__add-card-btn_disabled .list__add-card-img {
+  display: none;
+}
+.list__add-card-img {
+  width: 14px;
+  height: 14px;
+  text-align: start;
+  cursor: pointer;
+}
+.list__add-card-input {
+  width: 255px;
+  font-size: 18px;
+}
+.list__add-card-select {
+  width: 257px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: #0067A3;
+  color: #FFFFFF;
+}
+.counter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 17px 0 17px 67px;
+}
+.act-tasks {
+  margin-right: 36px;
+}
+.dev-info {
+  margin: 17px 24px 17px;
+}
