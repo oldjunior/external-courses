@@ -27,8 +27,9 @@ function Calculator() {
     return this;
   }
   this.fetchData = function(cb) {
-    this.result = cb(500);
-    return this;
+    setTimeout(() => {
+      this.result = cb(500);
+    }, 2000);
   }
   this.reset = function() {
     this.result = 0;
