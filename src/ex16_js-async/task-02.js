@@ -7,7 +7,6 @@ const hints = [
   'Daisy',
   'Gabriella'
 ]
-let isTimeout = false;
 
 function displayHints() {
   const
@@ -34,10 +33,13 @@ function displayHints() {
     hintBtn.insertAdjacentText('afterbegin', hintRes);
   });
 }
-function debounce() {
-  if (isTimeout) return;
-  displayHints();
-  isTimeout = true;
-  setTimeout(function() { isTimeout = false }, 500);
+
+function debounce(func) {
+  let timeoutID;
+  return function() {
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(() => func(), 350);
+  }
 }
-document.querySelector('.search-field__input').addEventListener('input', debounce);
+const debouncedHints = debounce(displayHints);
+document.querySelector('.search-field__input').addEventListener('input', debouncedHints);
