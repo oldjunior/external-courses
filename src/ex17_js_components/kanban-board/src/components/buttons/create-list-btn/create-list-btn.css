@@ -1,0 +1,24 @@
+.create-list-btn {
+  flex: none;
+  width: 181px;
+  height: 33px;
+  margin: 11px 50px;
+  padding: 0;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #000000;
+  text-align: start;
+  cursor: pointer;
+}
+.create-list-btn__img {
+  width: 22px;
+  height: 22px;
+  margin: 5px 13px 6px 9px;
+  vertical-align: top;
+}
+.create-list-btn__txt {
+  display: inline-block;
+  margin-top: 7px;
+}

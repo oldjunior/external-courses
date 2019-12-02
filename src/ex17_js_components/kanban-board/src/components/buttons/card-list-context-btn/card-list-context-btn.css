@@ -1,0 +1,12 @@
+.list__heading-btn {
+  width: 20px;
+  height: 8px;
+  align-self: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.list__heading-img {
+  width: 20px;
+  height: 8px;
+}
