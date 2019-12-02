@@ -1,0 +1,32 @@
+.list {
+  flex-basis: 282px;
+  margin: 20px 24px 20px 0;
+  background: #EBECF0;
+  border-radius: 10px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.list:first-child {
+  margin-left: 20px;
+}
+.list:last-child {
+  margin-right: 20px;
+}
+.board::after {
+  content: '.';
+  opacity: 0;
+  font-size: .5px;
+}
+.list__heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+  font-size: 18px;
+  color: #000000;
+}
+.list__heading-txt {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}

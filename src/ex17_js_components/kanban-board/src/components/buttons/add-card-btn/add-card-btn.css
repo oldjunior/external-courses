@@ -1,0 +1,37 @@
+.list__add-card-btn {
+  margin: 10px auto 8px auto;
+  width: 105px;
+  font-family: Roboto;
+  font-size: 18px;
+  color: #5E6C84;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.list__add-card-btn:hover {
+  background: #BDDCEE;
+  box-shadow: 0 0 10px gray;
+  border: .5px solid #BDDCEE;
+  border-radius: 5px;
+}
+.list__add-card-btn_disabled {
+  cursor: initial;
+}
+.list__add-card-btn_disabled:hover {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: initial;
+}
+.list__add-card-btn_disabled .list__add-card-txt {
+  color: #BDD8B1;
+}
+.list__add-card-btn_disabled .list__add-card-img {
+  display: none;
+}
+.list__add-card-img {
+  width: 14px;
+  height: 14px;
+  text-align: start;
+  cursor: pointer;
+}
