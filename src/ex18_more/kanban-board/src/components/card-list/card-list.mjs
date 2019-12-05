@@ -8,8 +8,8 @@ export function addLists(actualCards) {
   if (!actualCards.statuses.length) {
     board.insertAdjacentHTML('afterbegin', `
       <div class="board__no-lists-message">
-        <p>No lists yet</p>
-        <p>Click "Create new list" button to add one</p>
+        <p>No lists here yet</p>
+        <p>Click "Create new list" to add one</p>
       </div>
     `);
     return;
@@ -20,12 +20,19 @@ export function addLists(actualCards) {
     list.className = 'list';
     list.id = index;
     board.append(list);
-    list.insertAdjacentHTML('afterbegin',
-    `<div class="list__heading">
-      <h3 class="list__heading-txt">${status.text}</h3>
-      <div class="list__context-menu">
+    list.insertAdjacentHTML('afterbegin', `
+      <div class="list__heading">
+        <h3 class="list__heading-txt">${status.text}</h3>
+        <div class="list__context-menu">
+        </div>
       </div>
-    </div>`);
+    `);
+    if (!actualCards.issues.some(issue => issue.status === index + '')) {
+      const message = document.createElement('span');
+      message.className = 'list__no-cards-message';
+      message.insertAdjacentText('afterbegin', 'No cards here yet');
+      list.append(message);
+    }
     list.append(addCards(actualCards, index));
     list.insertAdjacentHTML('beforeend', addCardBtn(index));
   disableAddBtn(index);

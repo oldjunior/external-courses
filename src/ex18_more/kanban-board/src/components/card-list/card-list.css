@@ -31,3 +31,7 @@
   font-size: 18px;
   font-weight: normal;
 }
+.list__no-cards-message {
+  margin: 10px auto;
+  color: #7987a0;
+}

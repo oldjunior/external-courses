@@ -34,7 +34,7 @@ function createListBtnHandler(event) {
   header.removeEventListener('click', createListBtnHandler);
   document.addEventListener('click', clickAway, true);
   document.actualCards = actualCards;
-  function clickAway() {
+  function clickAway(event) {
     if (event.target.className === 'list__create-list-input') return;
     if (!actualCards.statuses.length) {
       board.insertAdjacentHTML('afterbegin', `
