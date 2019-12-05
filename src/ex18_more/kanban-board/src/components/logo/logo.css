@@ -1,0 +1,16 @@
+.app-logo {
+  flex: none;
+}
+.app-logo__img {
+  width: 45px;
+  height: 45px;
+  margin: 5px 8px 5px 14px;
+  vertical-align: top;
+}
+.app-logo__txt {
+  display:inline-block;
+  margin: 11px 0;
+  font-family: Roboto;
+  font-size: 28px;
+  color: #FFFFFF;
+}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './containers/header/header.css';
+@import './containers/main/board.css';
+@import './containers/footer/footer.css';
+@import './components/logo/logo.css';
+@import './components/buttons/create-list-btn/create-list-btn.css';
+@import './components/user-menu/user-menu.css';
+@import './components/card-list/card-list.css';
+@import './components/buttons/card-list-context-btn/card-list-context-btn.css';
+@import './components/card/card.css';
+@import './components/buttons/add-card-btn/add-card-btn.css';
+
+body {
+  margin: 0;
+  font-family: Roboto;
+  font-size: 18px;
+}
+.page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  min-width: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
