@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: #0067A3;
+  color: #FFFFFF;
+}
+.counter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 17px 0 17px 67px;
+}
+.act-tasks {
+  margin-right: 36px;
+}
+.dev-info {
+  margin: 17px 24px 17px;
+}
